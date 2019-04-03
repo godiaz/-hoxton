@@ -1,0 +1,13 @@
+
+<h1>Creating a New Course</h1>
+
+<%= simple_form_for @course do |f| %>
+
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :summary %>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Create Course" %>
+  </div>
+<% end %>
