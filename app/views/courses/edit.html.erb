@@ -1,0 +1,8 @@
+<h1>Edit Course</h1>
+
+<%= simple_form_for @course do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :summary %>
+  <%= f.button :submit, "Update" %>
+<% end %>
