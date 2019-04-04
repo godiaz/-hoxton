@@ -4,5 +4,15 @@
   <%= f.input :name %>
   <%= f.input :description %>
   <%= f.input :summary %>
+  <%= f.simple_fields_for @course.category do |p| %>
+    <%= p.input :name, label: false, placeholder: 'Choose a Category', collection: Category.accepted_names %>
+    <%= p.input :main_programming_language %>
+    <%= p.input :secondary_programming_language %>
+  <% end %>
   <%= f.button :submit, "Update" %>
 <% end %>
+
+
+<p>Delete your Course here</p>
+<%= link_to 'Delete', course_path(@course), method: :delete,
+    data: { confirm: 'Are you sure you want to delete this course?'} %>

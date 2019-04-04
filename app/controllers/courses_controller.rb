@@ -6,23 +6,23 @@ class CoursesController < ApplicationController
   end
 
   def components
-    @courses = Course.all
+    @courses = Course.joins(:category).where("categories.name = 'Components'")
   end
 
   def practices
-
+    @courses = Course.joins(:category).where("categories.name = 'Practices'")
   end
 
   def packages
-
+    @courses = Course.joins(:category).where("categories.name = 'Packages'")
   end
 
   def templates
-
+    @courses = Course.joins(:category).where("categories.name = 'Templates'")
   end
 
   def plus_developer
-
+    @courses = Course.joins(:category).where("categories.name = 'Plus Developer'")
   end
 
   def show
@@ -31,6 +31,7 @@ class CoursesController < ApplicationController
 
   def new
     @course = Course.new
+    @course.build_category
   end
 
   def create
@@ -53,7 +54,8 @@ class CoursesController < ApplicationController
   end
 
   def destroy
-
+    @course.destroy
+    redirect_to courses_path
   end
 
   private
@@ -63,7 +65,7 @@ class CoursesController < ApplicationController
   end
 
   def course_params
-    params.require(:course).permit(:name, :description, :summary)
+    params.require(:course).permit(:name, :description, :summary, category_attributes: [:name, :main_programming_language, :secondary_programming_language])
   end
 
 end

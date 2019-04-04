@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
-  resources :courses
+  resources :courses do
+    resources :cateogories
+  end
 
   get 'components', to: 'courses#components', as: :components
   get 'practices', to: 'courses#practices', as: :practices
