@@ -5,3 +5,9 @@
 <%= @course.description %>
 <br><br>
 <%= @course.summary %>
+
+<br><br>
+<div>
+  <p>Your Instructor for this course</p>
+  <%= link_to "#{@course.user.first_name}", courses_path %>
+</div>

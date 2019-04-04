@@ -1,7 +1,9 @@
 <h1>Practices</h1>
 
-<% @courses.each do |d| %>
-  <%= d.name %>
-  <%= link_to 'See more', course_path(d) %>
-  <%#= raise %>
+<% @courses.each do |course| %>
+<div class="card">
+  <%= course.name %>
+  <%= link_to 'See more', course_path(course) %>
+  <%= course.user.first_name %>
+  </div>
 <% end %>

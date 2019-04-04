@@ -1,0 +1,7 @@
+<% if @user.instructor %>
+  <h1>Instructor Page </h1>
+<% else %>
+  <h1>User Page</h1>
+<% end %>
+
+<%= @user.first_name %> <%= @user.last_name %>
