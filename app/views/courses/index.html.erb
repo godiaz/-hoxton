@@ -4,6 +4,9 @@
   <div class="card">
     <h3><%= course.name %></h3>
     <%= course.description %>
+    <br><br>
+    <%= course.user.first_name %>
+    <br><br>
     <%= link_to 'Show Details', course_path(course) %>
     <%= link_to 'Edit Details', edit_course_path(course) %>
   </div>
