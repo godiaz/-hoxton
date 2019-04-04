@@ -6,6 +6,11 @@
   <%= f.input :name %>
   <%= f.input :description %>
   <%= f.input :summary %>
+  <%= f.simple_fields_for :category, @course.category do |p| %>
+    <%= p.input :name, collection: Category.accepted_names, label: false, prompt: 'Choose a Category' %>
+    <%= p.input :main_programming_language, as: :radio_buttons, collection: Category.accepted_programming_languages, label: false, prompt: 'Choose a Programming Language' %>
+    <%= p.input :secondary_programming_language, label: false, placeholder: "Choose a Topic" %>
+  <% end %>
 
   <div class="form-actions">
     <%= f.button :submit, "Create Course" %>

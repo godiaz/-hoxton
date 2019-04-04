@@ -1,1 +1,7 @@
 <h1>Components</h1>
+
+<% @courses.each do |d| %>
+  <%= d.name %>
+  <%= link_to 'See more', course_path(d) %>
+  <%#= raise %>
+<% end %>
