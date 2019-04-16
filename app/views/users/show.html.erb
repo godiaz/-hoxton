@@ -1,7 +1,12 @@
-<% if @user.instructor %>
-  <h1>Instructor Page </h1>
+<% if @user.admin %>
+  <h1>Admin Page</h1>
+  <p>I am an admin</p>
+<% elsif @user.instructor %>
+  <h1>Instructor Page</h1>
+  <p>I am a teacher</p>
 <% else %>
-  <h1>User Page</h1>
+  <h1>Student Page</h1>
+  <p>I am a student</p>
 <% end %>
 
 <%= @user.first_name %> <%= @user.last_name %>
